@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               color: Colors.amber[100],
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: destination.length,
                 itemBuilder: (context, index) {
                   return Container(
                     margin: const EdgeInsets.all(15),
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                       alignment: Alignment.topCenter,
                       children: [
                         Positioned(
-                          bottom: 15,
+                          bottom: 5,
                           child: Container(
                             width: 200,
                             height: 120,
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.white,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 20 , top: 30,),
+                              padding: const EdgeInsets.only(left: 20 , top: 40,),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -103,6 +103,14 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image(
+                          width: 180,
+                          height: 180,
+                          fit: BoxFit.cover,
+                          image: AssetImage(destination[index]['imageUrl'])),
+                      )
                       ],
                     ),
                   );
