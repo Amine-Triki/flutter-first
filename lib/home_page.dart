@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
       FontAwesomeIcons.ship,
     ];
     return Scaffold(
+      backgroundColor: const Color(0xfff3f5f7),
       body: SafeArea(
         child: ListView(
           children: [
@@ -58,18 +59,20 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: 300,
-              color: Colors.amber[100],
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: destination.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: const EdgeInsets.all(15),
-                    height: 100,
+                    margin: const EdgeInsets.only(
+                      top: 15,
+                      bottom: 15,
+                      left: 7,
+                      right: 7,
+                    ),
                     width: 210,
-                    color: Colors.green[100],
                     child: Stack(
                       alignment: Alignment.topCenter,
                       children: [
@@ -83,34 +86,58 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.white,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 20 , top: 40,),
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                                top: 40,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '${destination[index]['activities'].length} activities' ,
-                                     style: const TextStyle(
-                                    fontSize: 20 ,
-                                    fontWeight: FontWeight.bold,
+                                    '${destination[index]['activities'].length} activities',
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
+                                  Text(
+                                    destination[index]['description'],
+                                    style: const TextStyle(color: Colors.grey),
+                                    maxLines: 2,
                                   ),
-                                  Text(destination[index]['description'],
-                                   style :const TextStyle(color: Colors.grey),
-                                   maxLines: 2,
-                                   ),
                                 ],
                               ),
                             ),
                           ),
                         ),
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image(
-                          width: 180,
+                        Container(
                           height: 180,
-                          fit: BoxFit.cover,
-                          image: AssetImage(destination[index]['imageUrl'])),
-                      )
+                          width: 180,
+                          decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: Colors.black54,
+                                  offset: Offset(4, 4),
+                                  blurRadius: 10,
+                                ),
+                                BoxShadow(
+                                  color: Colors.black54,
+                                  offset: Offset(-4, 4),
+                                  blurRadius: 10,
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20)),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                              width: 180,
+                              height: 180,
+                              fit: BoxFit.cover,
+                              image:
+                                  AssetImage(destination[index]['imageUrl'])),
+                        ),
                       ],
                     ),
                   );
