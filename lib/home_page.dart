@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:project1/database.dart';
+import 'package:project1/distination-sreen.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -65,119 +66,126 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: destination.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.only(
-                      top: 15,
-                      bottom: 15,
-                      left: 7,
-                      right: 7,
-                    ),
-                    width: 210,
-                    child: Stack(
-                      alignment: Alignment.topCenter,
-                      children: [
-                        Positioned(
-                          bottom: 5,
-                          child: Container(
-                            width: 200,
-                            height: 120,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 20,
-                                top: 40,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                        return Destination();
+                      }));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(
+                        top: 15,
+                        bottom: 15,
+                        left: 7,
+                        right: 7,
+                      ),
+                      width: 210,
+                      child: Stack(
+                        alignment: Alignment.topCenter,
+                        children: [
+                          Positioned(
+                            bottom: 5,
+                            child: Container(
+                              width: 200,
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    '${destination[index]['activities'].length} activities',
-                                    style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 20,
+                                  top: 40,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '${destination[index]['activities'].length} activities',
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    destination[index]['description'],
-                                    style: const TextStyle(color: Colors.grey),
-                                    maxLines: 2,
-                                  ),
-                                ],
+                                    Text(
+                                      destination[index]['description'],
+                                      style: const TextStyle(color: Colors.grey),
+                                      maxLines: 2,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Container(
-                          height: 180,
-                          width: 180,
-                          decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  offset: Offset(4, 4),
-                                  blurRadius: 10,
+                          Container(
+                            height: 180,
+                            width: 180,
+                            decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black54,
+                                    offset: Offset(4, 4),
+                                    blurRadius: 10,
+                                  ),
+                                  BoxShadow(
+                                    color: Colors.black54,
+                                    offset: Offset(-4, 4),
+                                    blurRadius: 10,
+                                  ),
+                                ],
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image(
+                                width: 180,
+                                height: 180,
+                                fit: BoxFit.cover,
+                                image:
+                                    AssetImage(destination[index]['imageUrl'])),
+                          ),
+                          Positioned(
+                            top: 120,
+                            left: 15,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      destination[index]['city'],
+                                      style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
                                 ),
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  offset: Offset(-4, 4),
-                                  blurRadius: 10,
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.search,
+                                      color: Colors.white,
+                                    ),
+                                    Text(
+                                      destination[index]['country'],
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20)),
-                        ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image(
-                              width: 180,
-                              height: 180,
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage(destination[index]['imageUrl'])),
-                        ),
-                        Positioned(
-                          top: 120,
-                          left: 15,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    destination[index]['city'],
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.search,
-                                    color: Colors.white,
-                                  ),
-                                  Text(
-                                    destination[index]['country'],
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 17,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
