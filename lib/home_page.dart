@@ -138,6 +138,45 @@ class _HomePageState extends State<HomePage> {
                               image:
                                   AssetImage(destination[index]['imageUrl'])),
                         ),
+                        Positioned(
+                          top: 120,
+                          left: 15,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.location_on,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    destination[index]['city'],
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.search,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    destination[index]['country'],
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 17,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   );
