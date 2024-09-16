@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Destination extends StatelessWidget {
+  final dest;
+  const Destination({super.key, required this.dest});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +28,7 @@ class Destination extends StatelessWidget {
             child: Image(
               fit: BoxFit.cover,
               height: MediaQuery.of(context).size.width,
-              image: const AssetImage('images/dahab2.jpg'),
+              image: AssetImage(dest['imageUrl']),
             ),
           ),
         ],
