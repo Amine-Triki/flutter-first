@@ -74,7 +74,51 @@ class Destination extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Positioned(
+            bottom: 15,
+            left: 15,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.location_on,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(width: 5,),
+                    Text(
+                      dest['city'],
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    const Icon(
+                      Icons.location_history,
+                      size: 30,
+                      color: Colors.white,
+                    ),
+                    const SizedBox(width: 5,),
+                    Text(
+                      dest['country'],
+                      style: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
