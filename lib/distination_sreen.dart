@@ -179,11 +179,28 @@ class Destination extends StatelessWidget {
                               activities[index]['type'],
                               style: const TextStyle(color: Colors.grey),
                             ),
-                            const Text('data'),
-                            const Row(
+                            const Text('start'),
+                            Row(
                               children: [
-                                Text('data3'),
-                                Text('data3'),
+                                Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: const Color(0xFF7627FF),
+                                    ),
+                                    padding: const EdgeInsets.all(7),
+                                    child: Text(
+                                        activities[index]['startTimes'][0])),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: const Color(0xFF7627FF),
+                                    ),
+                                    padding: const EdgeInsets.all(7),
+                                    child: Text(
+                                        activities[index]['startTimes'][1])),
                               ],
                             ),
                           ],
