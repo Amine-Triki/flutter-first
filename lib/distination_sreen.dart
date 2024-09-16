@@ -8,6 +8,7 @@ class Destination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xfff3f5f7),
       body: Column(
         children: [
           Stack(
@@ -137,7 +138,7 @@ class Destination extends StatelessWidget {
                       margin: const EdgeInsets.fromLTRB(70, 5, 20, 5),
                       height: 190,
                       decoration: BoxDecoration(
-                        color: Colors.green[400],
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
