@@ -22,18 +22,59 @@ class Destination extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
             ),
-          ),
-          Hero(
-            tag:dest['imageUrl'] ,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.width,
-                image: AssetImage(dest['imageUrl']),
+            child: Hero(
+              tag: dest['imageUrl'],
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.width,
+                  image: AssetImage(dest['imageUrl']),
+                ),
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 30,
+              horizontal: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    size: 30,
+                    color: Colors.black,
+                  ),
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.search,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.sort,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
