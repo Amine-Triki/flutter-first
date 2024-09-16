@@ -180,7 +180,8 @@ class Destination extends StatelessWidget {
                               activities[index]['type'],
                               style: const TextStyle(color: Colors.grey),
                             ),
-                            const Text('start'),
+                            ratingStars(activities[index]['rating']),
+                            const SizedBox(height: 5,),
                             Row(
                               children: [
                                 Container(
@@ -230,4 +231,12 @@ class Destination extends StatelessWidget {
       ),
     );
   }
+}
+
+Text ratingStars(int rate){
+  String stars='';
+  for (var i = 0 ; i < rate ; i++){
+    stars+='⭐';
+  }
+  return  Text(stars);
 }
