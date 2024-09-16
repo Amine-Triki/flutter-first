@@ -140,6 +140,29 @@ class Destination extends StatelessWidget {
                         color: Colors.green[400],
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      child: const Column(
+                        children: [
+                          Row(
+                            children: [
+                              Text('data1'),
+                              Column(
+                                children: [
+                                  Text('data2'),
+                                  Text('data3'),
+                                ],
+                              )
+                            ],
+                          ),
+                          Text('f'),
+                          Text('data'),
+                          Row(
+                            children: [
+                              Text('data3'),
+                              Text('data3'),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Positioned(
                       top: 10,
