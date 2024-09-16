@@ -23,12 +23,15 @@ class Destination extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image(
-              fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.width,
-              image: AssetImage(dest['imageUrl']),
+          Hero(
+            tag:dest['imageUrl'] ,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image(
+                fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.width,
+                image: AssetImage(dest['imageUrl']),
+              ),
             ),
           ),
         ],

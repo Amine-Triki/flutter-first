@@ -138,14 +138,17 @@ class _HomePageState extends State<HomePage> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20)),
                           ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image(
-                                width: 180,
-                                height: 180,
-                                fit: BoxFit.cover,
-                                image:
-                                    AssetImage(destination[index]['imageUrl'])),
+                          Hero(
+                            tag:destination[index]['imageUrl'] ,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image(
+                                  width: 180,
+                                  height: 180,
+                                  fit: BoxFit.cover,
+                                  image:
+                                      AssetImage(destination[index]['imageUrl'])),
+                            ),
                           ),
                           Positioned(
                             top: 120,
