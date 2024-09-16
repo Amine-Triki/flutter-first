@@ -8,7 +8,7 @@ class Destination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff3f5f7),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor ,
       body: Column(
         children: [
           Stack(

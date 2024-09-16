@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIcon = 0;
-  
+
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -26,28 +26,28 @@ class _HomePageState extends State<HomePage> {
     ];
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex:_selectedIndex ,
+        currentIndex: _selectedIndex,
         onTap: (value) {
           setState(() {
-            
-          _selectedIndex = value;
+            _selectedIndex = value;
           });
         },
         items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.local_pizza),
-          label: 'Pizza',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.search),
-          label: 'Search',
-        ),
-      ],),
-      backgroundColor: const Color(0xfff3f5f7),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.local_pizza),
+            label: 'Pizza',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+        ],
+      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: ListView(
           children: [
@@ -62,12 +62,12 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Destinations',
                     style: TextStyle(
                       fontSize: 20,
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 94, 26, 211)),
+                        color: Theme.of(context).primaryColor),
                   ),
                 ],
               ),
@@ -222,12 +222,12 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+             Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Exclusive hotels',
                     style: TextStyle(
                       fontSize: 20,
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromARGB(255, 94, 26, 211)),
+                        color: Theme.of(context).primaryColor),
                   ),
                 ],
               ),
@@ -361,13 +361,13 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40),
                 color: (_selectedIcon == index)
-                    ? const Color(0xFFED5818)
+                    ? Theme.of(context).primaryColorLight 
                     : const Color(0xFF5C5C5C),
               ),
               child: Icon(
                 listIcon[index],
                 color: (_selectedIcon == index)
-                    ? const Color.fromARGB(255, 172, 107, 246)
+                    ? Theme.of(context).primaryColor
                     : const Color(0xFFBEBEBE),
               ),
             ),
