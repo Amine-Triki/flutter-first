@@ -12,6 +12,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIcon = 0;
+  
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     List listIcon = [
@@ -23,6 +25,28 @@ class _HomePageState extends State<HomePage> {
       FontAwesomeIcons.ship,
     ];
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex:_selectedIndex ,
+        onTap: (value) {
+          setState(() {
+            
+          _selectedIndex = value;
+          });
+        },
+        items: const [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.local_pizza),
+          label: 'Pizza',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: 'Search',
+        ),
+      ],),
       backgroundColor: const Color(0xfff3f5f7),
       body: SafeArea(
         child: ListView(
@@ -68,9 +92,10 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
                         return Destination(
-                          dest:destination[index] ,
+                          dest: destination[index],
                         );
                       }));
                     },
@@ -111,7 +136,8 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     Text(
                                       destination[index]['description'],
-                                      style: const TextStyle(color: Colors.grey),
+                                      style:
+                                          const TextStyle(color: Colors.grey),
                                       maxLines: 2,
                                     ),
                                   ],
@@ -139,15 +165,15 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20)),
                           ),
                           Hero(
-                            tag:destination[index]['imageUrl'] ,
+                            tag: destination[index]['imageUrl'],
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Image(
                                   width: 180,
                                   height: 180,
                                   fit: BoxFit.cover,
-                                  image:
-                                      AssetImage(destination[index]['imageUrl'])),
+                                  image: AssetImage(
+                                      destination[index]['imageUrl'])),
                             ),
                           ),
                           Positioned(
