@@ -140,28 +140,42 @@ class Destination extends StatelessWidget {
                         color: Colors.green[400],
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: const Column(
-                        children: [
-                          Row(
-                            children: [
-                              Text('data1'),
-                              Column(
-                                children: [
-                                  Text('data2'),
-                                  Text('data3'),
-                                ],
-                              )
-                            ],
-                          ),
-                          Text('f'),
-                          Text('data'),
-                          Row(
-                            children: [
-                              Text('data3'),
-                              Text('data3'),
-                            ],
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(80, 10, 10, 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  width: 100,
+                                  child: Text(activities[index]['name'],
+                                      style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2),
+                                ),
+                                const Column(
+                                  children: [
+                                    Text('data2'),
+                                    Text('data3'),
+                                  ],
+                                )
+                              ],
+                            ),
+                            const Text('f'),
+                            const Text('data'),
+                            const Row(
+                              children: [
+                                Text('data3'),
+                                Text('data3'),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Positioned(
