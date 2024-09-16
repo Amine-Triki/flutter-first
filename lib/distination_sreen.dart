@@ -141,7 +141,7 @@ class Destination extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(80, 10, 10, 10),
+                        padding: const EdgeInsets.fromLTRB(80, 20, 5, 5),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -158,15 +158,27 @@ class Destination extends StatelessWidget {
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2),
                                 ),
-                                const Column(
+                                Column(
                                   children: [
-                                    Text('data2'),
-                                    Text('data3'),
+                                    Text(
+                                      '\$${activities[index]['price']}',
+                                      style: const TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    const Text(
+                                      'per pax',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
                                   ],
                                 )
                               ],
                             ),
-                            const Text('f'),
+                            Text(
+                              activities[index]['type'],
+                              style: const TextStyle(color: Colors.grey),
+                            ),
                             const Text('data'),
                             const Row(
                               children: [
