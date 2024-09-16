@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project1/database.dart';
 
 class Destination extends StatelessWidget {
   final dest;
@@ -129,16 +130,33 @@ class Destination extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 3,
+                itemCount: activities.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
-                    height: 140,
-                    decoration: BoxDecoration(
-                      color: Colors.green[400],
-                      borderRadius: BorderRadius.circular(20),
+                  return Stack(children: [
+                    Container(
+                      margin: const EdgeInsets.fromLTRB(70, 5, 20, 5),
+                      height: 190,
+                      decoration: BoxDecoration(
+                        color: Colors.green[400],
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
-                  );
+                    Positioned(
+                      top: 10,
+                      bottom: 10,
+                      left: 15,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image(
+                          width: 120,
+                          fit: BoxFit.cover,
+                          image: AssetImage(
+                            activities[index]['imageUrl'],
+                          ),
+                        ),
+                      ),
+                    )
+                  ]);
                 }),
           )
         ],
