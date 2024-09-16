@@ -7,118 +7,140 @@ class Destination extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              boxShadow: const [
-                BoxShadow(
-                  blurRadius: 20,
-                  offset: Offset(0, 7),
-                  color: Colors.black54,
-                )
-              ],
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Hero(
-              tag: dest['imageUrl'],
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image(
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.width,
-                  image: AssetImage(dest['imageUrl']),
+          Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 20,
+                      offset: Offset(0, 7),
+                      color: Colors.black54,
+                    )
+                  ],
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
                 ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 30,
-              horizontal: 20,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    size: 30,
-                    color: Colors.black,
+                child: Hero(
+                  tag: dest['imageUrl'],
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image(
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.width,
+                      image: AssetImage(dest['imageUrl']),
+                    ),
                   ),
                 ),
-                Row(
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 30,
+                  horizontal: 20,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                       icon: const Icon(
-                        Icons.search,
+                        Icons.arrow_back,
                         size: 30,
                         color: Colors.black,
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.sort,
-                        size: 30,
-                        color: Colors.black,
-                      ),
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.search,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.sort,
+                            size: 30,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 15,
-            left: 15,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+              ),
+              Positioned(
+                bottom: 15,
+                left: 15,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Icon(
-                      Icons.location_on,
-                      size: 30,
-                      color: Colors.white,
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          dest['city'],
+                          style: const TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(width: 5,),
-                    Text(
-                      dest['city'],
-                      style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Icons.location_history,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          dest['country'],
+                          style: const TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.location_history,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                    const SizedBox(width: 5,),
-                    Text(
-                      dest['country'],
-                      style: const TextStyle(
-                        fontSize: 25,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.fromLTRB(40, 5, 20, 5),
+                    height: 140,
+                    decoration: BoxDecoration(
+                      color: Colors.green[400],
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  );
+                }),
+          )
         ],
       ),
     );
